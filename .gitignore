@@ -1,0 +1,74 @@
+# ---- OS Files ----
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ---- Editor Files ----
+# VS Code
+.vscode/
+.history/
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# ---- Git ----
+*.orig
+
+# ---- Logs ----
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---- Dependencies ----
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# Java
+target/
+*.class
+
+# C / C++
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# ---- Build / Dist ----
+dist/
+build/
+out/
+*.egg-info/
+
+# ---- Environment / Secrets ----
+.env
+.env.*
+*.key
+*.pem
+
+# ---- Temporary Files ----
+tmp/
+temp/
+*.tmp
+*.swp
