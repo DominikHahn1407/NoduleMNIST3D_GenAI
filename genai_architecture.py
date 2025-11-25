@@ -12,7 +12,7 @@ class VAE3D(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv3d(16, 32, kernel_size=3, stride=2, padding=1), # -> (32,7,7,7)
             nn.ReLU(inplace=True),
-            nn.conv3d(32, 64, kernel_size=3, stride=2, padding=1), # -> (64,4,4,4)
+            nn.Conv3d(32, 64, kernel_size=3, stride=2, padding=1), # -> (64,4,4,4)
             nn.ReLU(inplace=True),
         )
         self.enc_fc_mu = nn.Linear(64*4*4*4, latent_dim)
@@ -53,9 +53,3 @@ class VAE3D(nn.Module):
         z = self.reparameterize(mu, logvar)
         x_hat = self.decode(z)
         return x_hat, mu, logvar
-
-    def vae_loss(recon_x, x, mu, logvar, beta=1.0):
-        recon = F.mse_loss(recon_x, x, reduction='sum') / x.size(0)
-        # KL divergence
-        kl = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp()) / x.size(0)
-        return recon + beta * kl, recon, kl
